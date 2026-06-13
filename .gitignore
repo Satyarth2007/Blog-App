@@ -1,6 +1,6 @@
 # Dependencies
 node_modules/
-
+TquickBlog-Assets
 # Environment variables
 .env
 
