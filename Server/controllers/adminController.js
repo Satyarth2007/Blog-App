@@ -64,7 +64,7 @@ export const getAllComments = async (req,res) => {
 
 export const getDashboard = async (req,res) => {
     try {
-        const recentBlog = await Blog.find({}).sort({createdAt: -1}).limit(5)
+        const recentBlogs = await Blog.find({}).sort({createdAt: -1}).limit(5)
         const blogs = await Blog.countDocuments()
         const comments = await Comment.countDocuments()
         const drafts = await Blog.countDocuments({isPublished: false})
@@ -73,7 +73,7 @@ export const getDashboard = async (req,res) => {
             blogs,
             comments,
             drafts,
-            recentBlog
+            recentBlogs
         }
 
         return res.json({
