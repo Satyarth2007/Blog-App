@@ -1,5 +1,5 @@
 import express from 'express'
-import { addBlog, addComent, deleteBlogById, getAllBlogs, getBlogById, getBlogComments, togglePublish } from '../controllers/BlogController.js'
+import { addBlog, addComent, deleteBlogById, generateContent, getAllBlogs, getBlogById, getBlogComments, togglePublish } from '../controllers/BlogController.js'
 import upload from '../middleware/multer.js'
 import auth from '../middleware/auth.js'
 
@@ -14,6 +14,8 @@ blogRouter.post('/toggle-publish', auth, togglePublish)
 
 blogRouter.post('/add-comment', addComent)
 blogRouter.post('/comments', getBlogComments)
+
+blogRouter.post('/generate', auth, generateContent)
 
 
 
